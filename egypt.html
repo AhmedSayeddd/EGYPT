@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- box icon -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remix icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=M+PLUS+Rounded+1c&display=swap"
+        rel="stylesheet">
+
+    <title>Egypt</title>
+    <style>
+        /* الخلفية المموهة */
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 998;
+            display: none;
+        }
+        
+        .emergency-panel h3 {
+            text-align: center;
+            /* لتوسيط النص */
+            font-size: 28px;
+            color: #292f94;
+            /* لون النص */
+            margin: 20px 0;
+        }
+        /* بانل الطوارئ */
+        
+        .emergency-panel {
+            position: fixed;
+            top: 50%;
+            right: -400px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            /* الخلفية شفافة قليلاً */
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px 0 0 20px;
+            width: 350px;
+            z-index: 999;
+            transition: right 0.5s ease-in-out;
+            color: white;
+            text-align: left;
+            /* محاذاة النصوص على اليسار */
+            box-shadow: 0 4px 20px rgba(40, 19, 232, 0.3);
+            /* تأثير الظل */
+        }
+        
+        .emergency-panel.show {
+            right: 0;
+        }
+        /* تنسيق الروابط */
+        
+        .emergency-panel a {
+            color: #ffffff;
+            text-decoration: underline;
+            padding-left: 10px;
+            /* المسافة بين الرقم والوصف */
+        }
+        /* تصميم الزر */
+        
+        .a-btn {
+            display: block;
+            /* يجعل الزر يعرض ككتلة */
+            margin: 20px auto;
+            /* يوسّط الزر أفقياً ويضع مسافة من الأعلى والأسفل */
+            padding: 12px 25px;
+            /* يحدد حجم الحواف داخل الزر */
+            background-color: #007bff;
+            /* اللون الأساسي للخلفية */
+            color: white;
+            /* لون النص */
+            border: none;
+            /* إزالة الحدود */
+            border-radius: 8px;
+            /* تدوير الحواف */
+            font-size: 18px;
+            /* حجم النص */
+            font-weight: bold;
+            /* جعل النص عريض */
+            text-align: center;
+            /* محاذاة النص في المنتصف */
+            cursor: pointer;
+            /* تغيير شكل المؤشر عند المرور فوق الزر */
+            transition: background-color 0.3s, transform 0.3s;
+            /* تأثيرات التمرير */
+        }
+        /* التأثير عند المرور بالماوس */
+        
+        .a-btn:hover {
+            background-color: #0056b3;
+            /* تغيير اللون عند التمرير */
+            transform: scale(1.05);
+            /* زيادة الحجم بشكل طفيف */
+        }
+        /* إزالة الخط الذي يظهر عند الضغط على الزر */
+        
+        .a-btn:focus {
+            outline: none;
+        }
+        /* تنسيق الـul داخل البانل */
+        
+        .emergency-panel ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        /* تنسيق الـli */
+        
+        .emergency-panel li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="public/img/logo.png"></a>
+        <ul class="navlist">
+            <a href="#">Home</a>
+            <a href="#destinations">Destination</a>
+            <a href="#about">Gide</a>
+            <a href="#"><i class="bx bx-user"></i>Login</a>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Egypt</h1>
+            <p>Egypt is not just a country, it's a timeless tale written in the language of pyramids and pharaohs.</p>
+            <div class="home-btn">
+                <a href="#destinations" class="btn">Discover Egypt</a>
+                <a href="#about" class="btn-second">Gide</a>
+            </div>
+            <div class="home-contain">
+                <div class="h-row">
+                    <div class="h-img">
+                        <img src="public/img/continar/Cairo Tower.jpeg">
+                    </div>
+                    <h6>Cairo Tower</h6>
+                </div>
+
+                <div class="h-row">
+                    <div class="h-img">
+                        <img src="public/img/continar/Abu Simbel Temple.jpeg">
+                    </div>
+                    <h6>Abu Simbel Temple</h6>
+                </div>
+
+                <div class="h-row">
+                    <div class="h-img">
+                        <img src="public/img/continar/Grand Egyptian Museum.jpeg">
+                    </div>
+                    <h6>Grand Egyptian Museumm</h6>
+                </div>
+
+                <div class="h-row">
+                    <div class="h-img">
+                        <img src="public/img/continar/Muhammad Ali Mosque.jpeg">
+                    </div>
+                    <h6>Muhammad Ali Mosque</h6>
+                </div>
+
+
+            <div class="arrow">
+                <a href="https://youtu.be/BapSQFJPMM0?si=DfYc04q5HpULdNY1"><i class="ri-play-line"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section-->
+    <section class="destinations" id="destinations">
+        <div class="middle-content">
+            <div class="mid-left">
+                <h6>Destination</h6>
+                <h1>Discover Egypt</h1>
+            </div>
+        </div>
+        <div class="Destination-card">
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/matruh.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>4.5</span>
+                    <div class="card_overla">
+                        <a href="Matruh.html">
+                            <h2>Matruh</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/cairo.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>5</span>
+                    <div class="card_overla">
+                        <a href="Cairo.html">
+                            <h2>Cairo</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/giza.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>4.7</span>
+                    <div class="card_overla">
+                        <a href="Giza.html">
+                            <h2>Giza</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/luxor.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>4.3</span>
+                    <div class="card_overla">
+                        <a href="Luxor.html">
+                            <h2>Luxor</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/alex.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>4.8</span>
+                    <div class="card_overla">
+                        <a href="Alexandria.html">
+                            <h2>Alexandria</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_img">
+                    <img src="public/img/destination/aswan.jpeg" alt="">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>5</span>
+                    <div class="card_overla">
+                        <a href="Aswan.html">
+                            <h2>Aswan</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div id="overlay" class="overlay"></div>
+    <!-- بانل الطوارئ -->
+    <div class="emergency-panel" id="emergencyPanel">
+        <h3>Emergency Egypt </h3>
+        <ul>
+            <li><strong>Ambulance:</strong> <a href="tel:+123">123</a></li>
+            <li><strong>Police:</strong> <a href="tel:+122">122</a></li>
+            <li><strong>Fire Department:</strong> <a href="tel:+180">180</a></li>
+            <li><strong>Emergency Reporting:</strong> <a href="tel:+112">112</a></li>
+            <li><strong>Medical Emergency:</strong> <a href="tel:+123">123</a></li>
+            <li><strong>General Emergency:</strong> <a href="tel:+122">122Emergency Reporting</a></li>
+
+        </ul>
+        <button id="close-panel" class="a-btn">Close</button>
+    </div>
+    <section class="about" id="about">
+        <div class="about-left">
+            <h6>Gide</h6>
+            <h2>We help you to facilitate your movements</h2>
+            <p>Transportation and weather awareness are essential for a smooth and well-planned travel experience.</p>
+        </div>
+        <div class="about-mid">
+            <img src="public/img/about.png">
+        </div>
+        <div class="about-right">
+            <div class="about-box">
+                <div class="a-img">
+                    <a href="#">
+                        <div class="in-img">
+                            <i class="ri-taxi-fill"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="a-text">
+                    <h4>Transport</h4>
+                </div>
+            </div>
+            <div class="about-box">
+                <div class="a-img">
+                    <a href="#">
+                        <div class="in-img">
+                            <i class="ri-cloud-windy-line"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="a-text">
+                    <h4>Weather</h4>
+                </div>
+            </div>
+            <div class="about-box ">
+                <div class="a-img ">
+                    <a href="#" id="emergencyBtn">
+                        <div class="in-img "><i class="ri-police-car-fill "></i></div>
+                    </a>
+                </div>
+                <div class="a-text">
+                    <h4>Emergency</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;2025 Dalilak</p>
+    </footer>
+
+
+
+
+
+<script src="js/france-script.js"></script>
+<script>
+    const openBtn = document.getElementById('emergencyBtn');
+    const panel = document.getElementById('emergencyPanel');
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('close-panel');
+    openBtn.addEventListener('click', () => {
+        panel.classList.add('show');
+        overlay.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        panel.classList.remove('show');
+        overlay.style.display = 'none';
+    });
+</script>
+</body>
+
+</html>
